@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var breadcrumb, checkIfActive, down, menuLink, target, textBox, up;
+    var breadcrumb, checkIfActive, down, focusIn, left, menuLink, right, target, textBox, up;
     breadcrumb = $('.breadcrumb');
     textBox = $('textarea');
     target = 'body';
@@ -28,9 +28,12 @@
       $("html, body").animate({
         scrollTop: $(target).offset().top
       }, "easeInOutExpo");
-      $('#html').focus();
+      focusIn();
       return checkIfActive();
     });
+    focusIn = function() {
+      return $('#html').focus();
+    };
     checkIfActive = function() {
       if ($('.inactive').length === 0) {
         breadcrumb.removeClass('bounceInUp');
@@ -40,7 +43,9 @@
         return breadcrumb.addClass('bounceInUp');
       }
     };
+    left = 37;
     up = 38;
+    right = 39;
     down = 40;
     document.onkeydown = function(e) {
       switch (e.keyCode) {
@@ -52,6 +57,7 @@
           $("html, body").animate({
             scrollTop: $(target).offset().top
           }, "easeInOutExpo");
+          focusIn();
           return checkIfActive();
       }
     };

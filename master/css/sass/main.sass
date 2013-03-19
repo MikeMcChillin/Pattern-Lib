@@ -83,14 +83,17 @@ h2
     overflow: hidden
     +transition(.5s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
     h2
+        text-align: left
+        text-indent: 3em
+        border-bottom: 1px solid rgba(0,0,0,.3)
         line-height: 3
-        background: rgba(0,0,0,.08)
+        //background: rgba(0,0,0,.08)
         color: rgba(0,0,0,.5)
 
     .menu-button
         text-align: center
         position: absolute
-        bottom: 0
+        bottom: 5px
         left: 50%
         margin-left: -(31px/2)
         +transition(1s ease opacity)
@@ -107,22 +110,23 @@ h2
         max-height: auto
         +opacity(1)
         float: left
-        border-bottom: 3px solid rgba(0,0,0,0)
-        +transition(.3s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
+        //border-bottom: 3px solid rgba(0,0,0,0)
+        +transition(.1s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
         &:last-child
             margin-right: 0
-        &:hover
-            border-bottom: 3px solid rgba(0,0,0,.08)
-            top: -3px
+        //&:hover
+            //+box-shadow(0 0 10px 0 rgba(0,0,0,.3))
+            // border-bottom: 3px solid rgba(0,0,0,.08)
+            // top: -3px
     dd
         //margin-bottom: .5em
         position: relative
-        background: rgba(0,0,0,.03)
+        //background: rgba(0,0,0,.03)
         padding: 0 0 0 2em
         &:hover::before
             background: rgba(0,0,0,.5)
-        &:hover
-            background: rgba(0,0,0,.05)
+        //&:hover
+            //background: rgba(0,0,0,.05)
         &:before
             content: ''
             position: absolute
@@ -159,6 +163,7 @@ h2
         padding: 0 0 0 2em
         color: rgba(0,0,0,.5)
         @include animated(1s, 0)
+        +transition(cubic-bezier(1.000, 0.000, 0.000, 1.000))
 
 article
     width: (100%/3)
