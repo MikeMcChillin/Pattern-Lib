@@ -107,7 +107,7 @@ h2
         float: left
         border-bottom: 3px solid rgba(0,0,0,0)
         +box-sizing(border-box)
-        +transition(.3s ease all)
+        +transition(.3s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
         &:last-child
             margin-right: 0
         &:hover
@@ -160,7 +160,7 @@ article
     padding: 2em
     background: $lightgrey
     +box-sizing(border-box)
-    +transition(.3s ease all)
+    +transition(.3s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
     h2
         color: rgba(0,0,0,.5)
 // .current,
@@ -193,7 +193,7 @@ textarea
     padding: 2em
     cursor: pointer
     +box-sizing(border-box)
-    +transition(.3s ease all)
+    +transition(.3s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
     &:focus
         background: rgba(0,0,0,.1)
         outline: 0

@@ -21,4 +21,24 @@ $ ->
         $(this).parent().removeClass 'currently-focused'
 
 
-
+    ###############################
+    ## Up & Down Arrows to reveal menu
+    ###############################
+    up = 38
+    down = 40
+    document.onkeydown = (e)->
+        switch e.keyCode
+            when down then $('.menu').removeClass 'inactive'
+            when up
+                $('.menu').addClass 'inactive'
+                target = 'body'
+                $("html, body").animate
+                    scrollTop: $(target).offset().top
+                      , 1000#, "easeInOutExpo"
+    ###############################
+    ## Scroll Up to reveal menu
+    ###############################
+    $(window).scroll ->
+        scroll = $(window).scrollTop()
+        if scroll < 0
+            $('.menu').removeClass 'inactive'

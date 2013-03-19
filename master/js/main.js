@@ -2,17 +2,39 @@
 (function() {
 
   $(function() {
-    var textBox;
+    var down, textBox, up;
     textBox = $('textarea');
     textBox.focus(function() {
       $('.menu').addClass('inactive');
       $(this).parent().parent().addClass('focused');
       return $(this).parent().addClass('currently-focused');
     });
-    return textBox.blur(function() {
+    textBox.blur(function() {
       $('.menu').removeClass('inactive');
       $(this).parent().parent().removeClass('focused');
       return $(this).parent().removeClass('currently-focused');
+    });
+    up = 38;
+    down = 40;
+    document.onkeydown = function(e) {
+      var target;
+      switch (e.keyCode) {
+        case down:
+          return $('.menu').removeClass('inactive');
+        case up:
+          $('.menu').addClass('inactive');
+          target = 'body';
+          return $("html, body").animate({
+            scrollTop: $(target).offset().top
+          }, 1000);
+      }
+    };
+    return $(window).scroll(function() {
+      var scroll;
+      scroll = $(window).scrollTop();
+      if (scroll < 0) {
+        return $('.menu').removeClass('inactive');
+      }
     });
   });
 
