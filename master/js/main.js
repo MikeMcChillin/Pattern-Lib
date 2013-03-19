@@ -2,38 +2,65 @@
 (function() {
 
   $(function() {
-    var down, textBox, up;
+    var breadcrumb, checkIfActive, down, menuLink, target, textBox, up;
+    breadcrumb = $('.breadcrumb');
     textBox = $('textarea');
+    target = 'body';
     textBox.focus(function() {
       $('.menu').addClass('inactive');
       $(this).parent().parent().addClass('focused');
-      return $(this).parent().addClass('currently-focused');
+      $(this).parent().addClass('currently-focused');
+      return checkIfActive();
     });
     textBox.blur(function() {
       $('.menu').removeClass('inactive');
       $(this).parent().parent().removeClass('focused');
-      return $(this).parent().removeClass('currently-focused');
+      $(this).parent().removeClass('currently-focused');
+      return checkIfActive();
     });
+    menuLink = $('.menu a');
+    menuLink.click(function(e) {
+      var breadcrumbText;
+      e.preventDefault();
+      $(this).parent().parent().parent().parent().addClass('inactive');
+      breadcrumbText = $(this).text();
+      breadcrumb.html(breadcrumbText);
+      $("html, body").animate({
+        scrollTop: $(target).offset().top
+      }, "easeInOutExpo");
+      $('#html').focus();
+      return checkIfActive();
+    });
+    checkIfActive = function() {
+      if ($('.inactive').length === 0) {
+        breadcrumb.removeClass('bounceInUp');
+        return breadcrumb.addClass('bounceOutUp');
+      } else {
+        breadcrumb.removeClass('bounceOutUp');
+        return breadcrumb.addClass('bounceInUp');
+      }
+    };
     up = 38;
     down = 40;
     document.onkeydown = function(e) {
-      var target;
       switch (e.keyCode) {
         case down:
-          return $('.menu').removeClass('inactive');
+          $('.menu').removeClass('inactive');
+          return checkIfActive();
         case up:
           $('.menu').addClass('inactive');
-          target = 'body';
-          return $("html, body").animate({
+          $("html, body").animate({
             scrollTop: $(target).offset().top
-          }, 1000);
+          }, "easeInOutExpo");
+          return checkIfActive();
       }
     };
     return $(window).scroll(function() {
       var scroll;
       scroll = $(window).scrollTop();
       if (scroll < 0) {
-        return $('.menu').removeClass('inactive');
+        $('.menu').removeClass('inactive');
+        return checkIfActive();
       }
     });
   });

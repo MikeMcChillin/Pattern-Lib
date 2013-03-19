@@ -1,0 +1,6 @@
+scroll =
+    setup:
+        html: ""
+        sass: ""
+        coffee: "$(window).scroll ->
+                scroll = $(window).scrollTop()"
