@@ -6,10 +6,12 @@ input,
 select,
 textarea
     color: #222
-
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700)
 body
     font-size: 1em
     line-height: 1.4
+    font-family: 'Source Code Pro'
+    background: papayawhip
 
 
 ::-moz-selection
@@ -58,12 +60,150 @@ textarea
 $lightgrey: #efefef
 
 // Author's custom styles
+a
+    color: rgba(0,0,0,.5)
+    text-decoration: none
+    //border-bottom: 1px solid rgba(0,0,0,.5)
+    //+transition(.3s ease all)
+    &:hover
+        color: rgba(0,0,0,.8)
+        //border-bottom: 0
+h2
+    font-size: .7em
+    font-weight: bold
+    text-transform: uppercase
+    text-align: center
+.menu
+    width: 100%
+    padding: 4em 0
+    min-height: 400px
+    overflow: hidden
+    +transition(.5s cubic-bezier(1.000, 0.000, 0.000, 1.000) all)
+    +box-sizing(border-box)
+    h2
+        line-height: 3
+        background: rgba(0,0,0,.08)
+        color: rgba(0,0,0,.5)
+
+    .menu-button
+        text-align: center
+        position: absolute
+        bottom: 0
+        left: 50%
+        margin-left: -(31px/2)
+        +transition(1s ease opacity)
+        +opacity(0)
+    nav
+        margin: 0 auto
+        max-width: 90%
+    dl
+        //width: (100%/3)
+        position: relative
+        max-width: 30%
+        width: 100%
+        margin: 0 3.33333% 1em 0
+        max-height: auto
+        +opacity(1)
+        float: left
+        border-bottom: 3px solid rgba(0,0,0,0)
+        +box-sizing(border-box)
+        +transition(.3s ease all)
+        &:last-child
+            margin-right: 0
+        &:hover
+            border-bottom: 3px solid rgba(0,0,0,.08)
+            top: -3px
+    dd
+        //margin-bottom: .5em
+        position: relative
+        background: rgba(0,0,0,.03)
+        padding: 0 0 0 2em
+        &:hover::before
+            background: rgba(0,0,0,.5)
+        &:hover
+            background: rgba(0,0,0,.05)
+        &:before
+            content: ''
+            position: absolute
+            display: block
+            width: 8px
+            height: 2px
+            background: rgba(0,0,0,.3)
+            top: 18px
+            left: 1em
+        &:hover::before
+            width: 2px
+    a
+        display: block
+        padding: .5em 0
+    &.inactive
+        padding: 0 0 2em 0
+        min-height: 60px
+        cursor: pointer
+        &:hover
+            //min-height: 80px
+            $papayawhip: #FFEFD5
+            background: lighten($papayawhip, 5%)
+        dl
+            max-height: 0
+            overflow: hidden
+            +opacity(0)
+        .menu-button
+            +opacity(.3)
+        
+    footer
+        position: relative
+
 article
     width: (100%/3)
     float: left
-    border-right: 1px solid $lightgrey
+    padding: 2em
+    background: $lightgrey
+    +box-sizing(border-box)
+    +transition(.3s ease all)
+    h2
+        color: rgba(0,0,0,.5)
+// .current,
+// .html:hover,
+// .sass:hover,
+// .coffee:hover
+//     width: (100%/3)
+
+
+
+.html,
+.html textarea
+    background: coral
+.sass,
+.sass textarea
+    background: tomato
+.coffee,
+.coffee textarea
+    background: firebrick
 textarea
     border: 0
+    width: 100%
+    min-height: 600px
+    font-family: 'Source Code Pro'
+    font-size: .7em
+    position: relative
+    z-index: 2
+    margin-top: 2em
+    color: rgba(0,0,0,.8)
+    padding: 2em
+    cursor: pointer
+    +box-sizing(border-box)
+    +transition(.3s ease all)
+    &:focus
+        background: rgba(0,0,0,.1)
+        outline: 0
+        z-index: 4
+
+.focused
+    article
+        width: (100%/6)
+    .currently-focused
+        width: (200%/3)
 
 
 

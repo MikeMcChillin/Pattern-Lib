@@ -2,11 +2,17 @@
 (function() {
 
   $(function() {
-    var gistURL, jqxhr;
-    gistURL = 'https://api.github.com/users/mikemcchillin/gists' + "&callback=?";
-    jqxhr = $.getJSON(gistURL, function() {}).success(function() {}).error(function() {}).complete(function() {});
-    return jqxhr.complete(function() {
-      return alert("second complete");
+    var textBox;
+    textBox = $('textarea');
+    textBox.focus(function() {
+      $('.menu').addClass('inactive');
+      $(this).parent().parent().addClass('focused');
+      return $(this).parent().addClass('currently-focused');
+    });
+    return textBox.blur(function() {
+      $('.menu').removeClass('inactive');
+      $(this).parent().parent().removeClass('focused');
+      return $(this).parent().removeClass('currently-focused');
     });
   });
 

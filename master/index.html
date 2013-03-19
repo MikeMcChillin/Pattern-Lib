@@ -22,33 +22,44 @@
 
         <!-- Add your site or application content here -->
         <div class="container">
-            <section>
-                <nav>
+            <section class="menu">
+                <nav class="clearfix">
                     <dl>
                         <dt><h2>Scrolling Events</dt>
-                        <dd>Basic Scroll Setup</dd>
+                        <dd><a href="#">Basic Scroll Setup</a></dd>
                     </dl>
                     <dl>
                         <dt><h2>Navigation</dt>
-                        <dd>Smooth Scroll</dd>
-                        <dd>Secondary Nav</dd>
+                        <dd><a href="#">Smooth Scroll</a></dd>
+                        <dd><a href="#">Secondary Nav</a></dd>
                     </dl>
                     <dl>
                         <dt><h2>Email</dt>
-                        <dd>Campaign Monitor Ajax With Response</dd>
+                        <dd><a href="#">Campaign Monitor Ajax With Response</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><h2>Keystrokes</dt>
+                        <dd><a href="#">Animation on down arrow</a></dd>
                     </dl>
                 </nav>
+                <footer>
+                    <img class="menu-button" src="img/nav.svg" alt="___" />
+                </footer>
             </section>
-            <section class="clearfix">
-                <article>
+            <section class="clearfix code">
+                <article class="html">
                     <h2>HTML</h2>
-                    <textarea></textarea>
+                    <div class="insert"></div>
+                    <textarea id="html"></textarea>
                 </article>
-                <article>
-                    <textarea></textarea>
+                <article class="sass">
+                    <h2>SASS</h2>
+                    <textarea id="sass"></textarea>
                 </article>
-                <article>
-                    <textarea></textarea>
+                <article class="coffee">
+                    <h2>Coffee</h2>
+                    <textarea id="coffee">$(window).scroll ->
+            scroll = $(window).scrollTop()</textarea>
                 </article>
             </section>
         </div>

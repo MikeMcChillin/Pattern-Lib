@@ -1,20 +1,24 @@
-$ ->
-    gistURL = 'https://api.github.com/users/mikemcchillin/gists' + "&callback=?"
-    # Assign handlers immediately after making the request,
-    # and remember the jqxhr object for this request
-    jqxhr = $.getJSON(gistURL, ->
-        #alert "success"
-    ).success(->
-        #alert "second success"
-    ).error(->
-        #alert "error"
-    ).complete(->
-        #alert "complete"
-    )
-    
-    # perform other work here ...
-    
-    # Set another completion function for the request above
-    jqxhr.complete ->
-      alert "second complete"
-    
+$ ->    
+    # printGist = (gist) ->
+    #     $('.html .insert').html gist.repo, " (" + gist.description + ") :"
+    #     $('.html .insert').html gist.div
+
+    # $.ajax
+    #     url: "https://api.github.com/users/mikemcchillin/gists"
+    #     #dataType: "jsonp"
+    #     success: printGist
+
+
+
+    textBox = $('textarea')
+    textBox.focus ->
+        $('.menu').addClass 'inactive'
+        $(this).parent().parent().addClass 'focused'
+        $(this).parent().addClass 'currently-focused'
+    textBox.blur ->
+        $('.menu').removeClass 'inactive'
+        $(this).parent().parent().removeClass 'focused'
+        $(this).parent().removeClass 'currently-focused'
+
+
+
